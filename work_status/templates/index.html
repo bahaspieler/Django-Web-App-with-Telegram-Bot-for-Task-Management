@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<br>
+<!--<br>-->
+
+<!--&lt;!&ndash;<div class="button-group">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <a href="{% url 'display_lte' %}" class="btn btn-primary btn-md" role="button"> LTE Integration</a>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a href="{% url 'add_lte' %}" class="btn btn-primary btn-sm" role="button"> +</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--<br>-->
+<div class="container">
+<h4>Status for {{ header }}</h4>
+<form method="post" action="">
+   {% csrf_token %}
+    <div class ="form-row">
+
+        {{form|crispy}}
+
+    </div><input class="btn btn-primary btn-sm" type="submit" value="Search" />
+
+
+</form>
+<br>
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>No.</th>
+        <th>Site/Cell Name</th>
+        <th>Service Type</th>
+        <th>Task Type</th>
+        <th>Task Details</th>
+        <th>execution_date</th>
+        <th>Executor Name</th>
+        <th>InC Domain</th>
+        <th>Ticket no.</th>
+        <th>Remarks</th>
+        <th>Time</th>
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+
+    {% for item in items %}
+
+    <tr>
+        <td>{{ item.pk }}</td>
+        <td>{{ item.site }}</td>
+        <td>{{ item.service }}</td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.task }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.executor }}</td>
+        <td>{{ item.domain }}</td>
+        <td>{{ item.ticket }}</td>
+        <td>{{ item.remarks }}</td>
+        <td>{{ item.time }}</td>
+        <td>
+            <a href="{% url 'edit_lte' item.pk %}" class="btn btn-warning btn-sm"role="button">Edit</a>
+        </td>
+<!--        <td>-->
+<!--            <a href="{% url 'edit_lte' item.pk %}" class="btn btn-warning btn-sm"role="button">Edit</a>-->
+<!--            <a href="{% url 'delete_lte' item.pk %}" class="btn btn-danger btn-sm"role="button">x</a>-->
+
+<!--        </td>-->
+    </tr>
+
+
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+</div>

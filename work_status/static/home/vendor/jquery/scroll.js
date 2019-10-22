@@ -1,0 +1,3 @@
+$(document).scroll(function () {
+$('nav').toggleClass('scrolled', $(this).scrollTop() > 475);
+});

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+
+
+<div class="container">
+
+<form method="post" action="">
+   {% csrf_token %}
+    <div class ="form-row">
+
+        {{form|crispy}}
+
+    </div><input class="btn btn-primary btn-sm" type="submit" value="Search" />
+
+
+</form>
+
+<br>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Executor Name</th>
+        <th>Ticket</th>
+        <th>Task Type</th>
+        <th>Execution Date</th>
+        <th>Catagory</th>
+        <th>InC Domain</th>
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+
+    {% for item in invalid %}
+    {% if item.completed %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td class="striker">{{ item.executor }}</td>
+        <td>{{ item.ticket }}</td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.catag }}</td>
+        <td>{{ item.domain }}</td>
+        <td>
+            <a href="{% url 'todo_pending' item.pk %}" class="btn btn-success btn-sm" role="button">COMPLETED</a>
+            &nbsp<a href="{% url 'add_lte' %}" class="btn btn-warning btn-sm"role="button">ADD</a>
+        </td>
+    </tr>
+
+    {% else %}
+
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.executor }}</td>
+        <td>{{ item.ticket }}</td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.catag }}</td>
+        <td>{{ item.domain }}</td>
+        <td>
+            <a href="{% url 'todo_completed' item.pk %}" class="btn btn-danger btn-sm" role="button">PENDING....</a>
+            &nbsp<a href="{% url 'add_lte' %}" class="btn btn-warning btn-sm"role="button">ADD</a>
+        </td>
+    </tr>
+    {% endif %}
+
+
+
+
+    {% endfor %}
+    
+    </tbody>
+
+</table>
+
+{% endblock %}
+</div>

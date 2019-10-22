@@ -1,0 +1,34 @@
+{% block body %}
+<br>
+
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+
+        <th>Site</th>
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+
+    {% for item in text %}
+
+    <tr>
+
+        <td>{{ item }}</td>
+
+    </tr>
+
+
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
