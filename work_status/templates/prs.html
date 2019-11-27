@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+{% load static %}
+<div id="running">
+    <div class="loader">
+        <div class="loader-inner">
+
+        </div>
+    </div>
+    <p style="position:relative; display:flex; padding-top: 80px;">Programme is Running</p>
+</div>
+<br>
+<div class="container" style="position:relative;padding-right:0px; padding-left:0px; margin-right: auto; z-index:1;">
+    <a  class="tit">PRS Data Analysis</a>
+    <div><br></div>
+
+
+    <form method="post" enctype="multipart/form-data">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/form.css '%}">
+        {% csrf_token %}
+        <div class="form-row">
+<!--              <legend class="border-bottom sm-4">Input Data</legend>-->
+              {{ form|crispy }}
+        </div>
+        <div  class="form-row">
+              <button id="run" class="btn btn-primary" type="submit">RUN</button>
+        </div>
+        <div id="download" class="form-row">
+              <a href="{% url 'download' 'PRS' 'ultimate.xlsx' %}" class="btn btn-primary" >Download File</a>
+        </div></form>
+
+
+
+
+
+</div>
+
+{% endblock %}

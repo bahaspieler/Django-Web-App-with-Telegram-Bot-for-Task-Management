@@ -5,7 +5,7 @@ from .models import *
 # Register your models here.
 
 
-@admin.register(lte_integration, lte_validation, team)
+@admin.register(lte_integration, lte_validation, team, prs)
 
 class ViewAdmin(ImportExportModelAdmin):
     pass

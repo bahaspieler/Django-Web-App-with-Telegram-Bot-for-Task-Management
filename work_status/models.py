@@ -42,3 +42,14 @@ class team(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='Team')
     def __str__(self):
         return 'Name: {0} Designation: {1}'.format(self.name, self.designation)
+
+class prs(models.Model):
+    pre_data = models.FileField(upload_to='PRS')
+    post_data = models.FileField(upload_to='PRS')
+    site_list= models.FileField(upload_to='PRS')
+    threshold = models.FileField(upload_to='PRS')
+    choices= (('1','2G'), ('2','3G'), ('3','4G'))
+    type= models.CharField(max_length=5,choices=choices, blank=False)
+
+
+

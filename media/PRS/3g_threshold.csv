@@ -1,0 +1,11 @@
+Data,Threshold
+Voice Traffic (Erl)(Erl),25
+3G Voice MPD(min),20
+CS Call Drop Rate (Total)(%),25
+RRC Congestion(%),25
+CS RAB Congestion(%),25
+PS RAB Congestion(%),25
+3G Total Data Volume (GB),25
+HSDPA Cell Throughput (kbit/s),25
+Soft Handover Success Rate(%),15
+IRAT Hard Handover Success Rate(%),15

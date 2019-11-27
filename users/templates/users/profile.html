@@ -2,10 +2,11 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <br>
+<div class="container" style="position:relative;padding-right:0px; padding-left:0px; margin-right: auto; margin-left:200px; z-index:1;">
     <div class="content-section">
       <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="300" width="300">
-        <div class="media-body">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="150" width="150">
+        <div class="media-body" style="position:relative; margin-left:20px; margin-top:30px; ">
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
         </div>
@@ -18,8 +19,9 @@
               {{ p_form|crispy }}
           </fieldset>
           <div class="form-group">
-              <button class="btn btn-outline-info" type="submit">Update</button>
+              <button class="btn btn-primary" type="submit">Update</button>
           </div>
       </form>
     </div>
 {% endblock content %}
+</div>

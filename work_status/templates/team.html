@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+{% load static %}
+
+<br>
+<div class="container" style="position:relative;padding-right:0px; padding-left:0px; margin-right: auto; z-index:1;">
+    <a class="tit">The Team</a>
+    <div><br></div>
+
+    <div class="row">
+        {% for item in items %}
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a class="pro" href="#"><img class="card-img-top" src="{{ item.image.url }}" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a class="pro">{{ item.name }}</a>
+                    </h4>
+                    <p class="card-text">{{ item.designation }}<br>{{ item.email }}<br>{{ item.contact }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

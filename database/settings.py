@@ -25,7 +25,7 @@ SECRET_KEY = '&5okt#_nx6+q=te@g2$9$p7+)iupc=p*k@f#k)%x*rn%wpbbvj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '10.7.208.76']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'work_status',
     'import_export',
     'crispy_forms',
-    'rest_framework'
+    'rest_framework',
+    'django_server_access_logs',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_server_access_logs.logging_middleware.AccessLogsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'database.urls'

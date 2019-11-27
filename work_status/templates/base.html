@@ -13,22 +13,27 @@
 
 
 </head>
+    <script src="https://kit.fontawesome.com/205a6e4ba5.js" crossorigin="anonymous"></script>
+
     {% load static %}
     <!-- Bootstrap core CSS -->
+    <!--<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css '%}">-->
     <link href="{%static '/home/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet %}">
 
     <!-- Custom styles for this template -->
     <link href="{%static '/home/css/modern-business.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css '%}">
-    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.css '%}">
+
     <link rel="stylesheet" type="text/css" href="{% static '/css/main.css '%}">
 
 
-    <body>
+<body>
 <!--    <div id="loading"></div>-->
-    <div id="particles-js"></div>
+
             <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-gp fixed-top">
+
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-gp fixed-top">
         <div class="container">
             <a class="navbar-brand a-nav" href="{% url 'home' %}">Home</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,53 +41,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'display_lte' %}" style="color:#fff;">Tasks</a>
+                    <li class="nav-item" style="padding-right:30px;">
+                        <a class="nav-link a-nav" href="{% url 'display_lte' %}" style="color:#fff;">Tasks</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'validate' %}" style="color:#fff;">Dashboard</a>
+                    <li class="nav-item" style="padding-right:30px;">
+                        <a class="nav-link a-nav" href="{% url 'validate' %}" style="color:#fff;">Dashboard</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="" style="color:#fff;">Contact</a>
+                    <li class="nav-item" style="padding-right:30px;">
+                        <a class="nav-link a-nav" href="{% url 'the_team' %}" style="color:#fff;">Team</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">
-                            Portfolio
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                            <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-                        </div>
+
+                    <li class="nav-item" style="padding-right:30px;">
+                        <a class="nav-link a-nav" href="{% url 'tool' %}" style="color:#fff;">Tool</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">
-                            Blog
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                            <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                            <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                            <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Other Pages
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                            <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                            <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                            <a class="dropdown-item" href="faq.html">FAQ</a>
-                            <a class="dropdown-item" href="404.html">404</a>
-                            <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-                        </div>
+
+                    <li class="navbar-nav" style="padding-left:100px;">
+                        {% if user.is_authenticated %}
+                            <a class="nav-link a-nav" href="{% url 'profile' %}">Profile</a>
+                            <a class="nav-link a-nav" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                            <a class="nav-link a-nav" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link a-nav" href="{% url 'register' %}">Register</a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+<div id="particles-js"></div>
 
         <div>
             {% if messages %}
@@ -98,9 +84,63 @@
             {% block body %}
             {% block header %}{% endblock %}
             {% endblock %}
+
         </div>
+
+<footer class="foot py-5 h-100">
+    <div class="container">
+        <p class="m-0 text-center text-white">Developed by &copy; Baha Uddin Ahmed 2019</p>
+    </div>
+</footer>
     <script type="text/javascript" src="{% static '/js/particles.js' %}"></script>
     <script type="text/javascript" src="{% static '/js/app.js' %}"></script>
-    </body>
+    <script src="{% static '/home/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/home/vendor/jquery/scroll.js' %}"></script>
+<!--    <script>
+        $(window).on("load", function(){
+            $("#loader").fadeOut("slow");
+        });
+
+    </script>-->
+
+    <script>
+        setTimeout(function(){
+            $("#loader").fadeOut("slow");
+        },3000);
+
+    </script>
+
+<!--    <script>-->
+<!--        $("#run").on("click",function(){-->
+<!--            $(window).load(function(){-->
+<!--                $("#runnung").fadeOut("slow");-->
+<!--            })-->
+<!--        });-->
+
+<!--    </script>-->
+
+
+    <script>
+        $(document).ready(function(){
+            $("#running").fadeOut("fast");
+            });
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#run").click(function(){
+                $("#running").fadeIn("fast");
+            });
+        });
+
+
+    </script>
+
+
+
+
+</body>
 
 </html>

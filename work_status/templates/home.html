@@ -3,8 +3,76 @@
 {% block body %}
 {% block header %}
 
+
+
+<div id="loader">
+    <lo>
+        <lot>I</lot>
+        <lot>C</lot>
+    </lo>
+    <svg version="1.1" id="preloader" x="0px" y="0px" width="240px" height="120px" viewBox="0 0 240 120">
+
+    <style type="text/css" >
+        <![CDATA[
+
+            #plug,
+            #socket { fill:#FDB515 }
+
+            #loop-normal { fill: none; stroke: #64FFDA; stroke-width: 8 }
+            #loop-offset { display: none }
+
+        ]]>
+    </style>
+
+    <path id="loop-normal" class="st1" d="M120.5,60.5L146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+    L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0z">
+    <animate attributeName="stroke-dasharray" attributeType="XML"
+        from="500, 50"  to="450 50"
+        begin="0s" dur="2s"
+        repeatCount="indefinite"/>
+    <animate attributeName="stroke-dashoffset" attributeType="XML"
+        from="-40"  to="-540"
+        begin="0s" dur="2s"
+        repeatCount="indefinite"/>
+    </path>
+
+    <path id="loop-offset" d="M146.48,87.02c14.64,14.64,38.39,14.65,53.03,0s14.64-38.39,0-53.03s-38.39-14.65-53.03,0L120.5,60.5
+    L94.52,87.02c-14.64,14.64-38.39,14.64-53.03,0c-14.64-14.64-14.64-38.39,0-53.03c14.65-14.64,38.39-14.65,53.03,0L120.5,60.5
+    L146.48,87.02z"/>
+
+    <path id="socket" d="M7.5,0c0,8.28-6.72,15-15,15l0-30C0.78-15,7.5-8.28,7.5,0z"/>
+
+    <path id="plug" d="M0,9l15,0l0-5H0v-8.5l15,0l0-5H0V-15c-8.29,0-15,6.71-15,15c0,8.28,6.71,15,15,15V9z"/>
+
+    <animateMotion
+        xlink:href="#plug"
+        dur="2s"
+        rotate="auto"
+        repeatCount="indefinite"
+        calcMode="linear"
+        keyTimes="0;1"
+        keySplines="0.42, 0, 0.58, 1">
+        <mpath xlink:href="#loop-normal"/>
+    </animateMotion>
+
+    <animateMotion
+        xlink:href="#socket"
+        dur="2s"
+        rotate="auto"
+        repeatCount="indefinite"
+        calcMode="linear"
+        keyTimes="0;1"
+        keySplines="0.42, 0, 0.58, 1">
+        <mpath xlink:href="#loop-offset"/>
+    </animateMotion>
+    </svg>
+
+
+</div>
+
+
 <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000" data-key="true">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -15,7 +83,7 @@
             <div class="carousel-item active">
                 <div align="view">
                     <video class="video-fluid" autoplay loop muted style="transform: translate(0,-20%);">
-                        <source src="{% static '/css/background/video4.mp4' %}" type="video/mp4">
+                        <source src="{% static '/css/background/video/video_enc_1.mp4' %}" type="video/mp4">
                         Your Browser doesn't support HTML5 video tag.
                     </video>
                 </div>
@@ -29,7 +97,7 @@
             <div class="carousel-item">
                 <div align="view">
                     <video class="video-fluid" autoplay loop muted style="transform: translate(0,-20%);">
-                        <source src="{% static '/css/background/video3.mp4' %}" type="video/mp4">
+                        <source src="{% static '/css/background/video/video_enc_2_3.mp4' %}" type="video/mp4">
                         Your Browser doesn't support HTML5 video tag.
                     </video>
                 </div>
@@ -43,7 +111,7 @@
             <div class="carousel-item">
                 <div align="view">
                     <video class="video-fluid" autoplay loop muted style="transform: translate(0,-20%);">
-                        <source src="{% static '/css/background/video5.mp4' %}" type="video/mp4">
+                        <source src="{% static '/css/background/video/video_enc_3.mp4' %}" type="video/mp4">
                         Your Browser doesn't support HTML5 video tag.
                     </video>
                 </div>
@@ -69,47 +137,50 @@
 
 
 <div class="container">
+    <br>
+    <br>
+    <div id="with-video" class="row">
+        <div id="wel-box" class="col-lg-6">
 
-    <div class="row">
-        <div class="col-lg-6">
             <a class="tit">Welcome to I&C</a>
-            <div><br></div>
-            <p>I&C has below domains</p>
-            <ul>
-                <li>
-                    <strong>New BTS</strong>
-                </li>
-                <li>Optimization</li>
-                <li>Transmission</li>
-                <li>Rehoming</li>
-            </ul>
-            <p>This website is the commonplace of each of the works done by the I&C Team. You can search for existing works through the filters given. If you can't find any entity that means I&C has no issue with it. For emergency you can even have the contact information of the desired person.</p>
+            <div id="welcome" class="box-para" style="margin-top:33px;">
+                <p style="margin-bottom:0px;">I&C has below domains</p>
+                <ul style="margin-bottom:0px; font-size:15px">
+                    <li>
+                        New BTS
+                    </li>
+                    <li>Optimization</li>
+                    <li>Transmission</li>
+                    <li>Rehoming</li>
+                </ul>
+                <p style="font-size:14px;">This website is the commonplace of each of the works done by the I&C Team. You can search for existing works through the filters given. If you can't find any entity that means I&C has no issue with it. For emergency you can even have the contact information of the desired person.</p>
+            </div>
         </div>
-        <div class="col-lg-6">
+        <div id="gp-video" class="col-lg-6">
 
-            <video class="video-fluid" autoplay loop muted style="width:700px; height:400px; opacity:.7;"><source  src="{% static '/css/background/gp.mp4' %}" type="video/mp4"></video>
+            <video class="video-fluid" autoplay loop muted style="position:relative;width:100%; height:400px; opacity:.5;"><source  src="{% static '/css/background/gp.mp4' %}" type="video/mp4"></video>
         </div>
     </div>
-    <hr>
+
 
     <!-- Call to Action Section -->
     <div class="row mb-4">
-        <div class="col-md-8">
+<!--        <div class="col-md-8">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-        </div>
+        </div>-->
         <div class="col-md-4">
-            <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
+            <a class="btn btn-lg btn-secondary btn-block" href="{% url 'the_team' %}" style="background-color: rgba(28,89,187, 0.75);">Call for Action</a>
         </div>
     </div>
 
 
-    <a class="tit">Task manager</a>
+    <a  class="tit">Task manager</a>
     <div><br></div>
 
     <!-- Marketing Icons Section -->
-    <div class="row">
+    <div id='task-man' class="row">
         <div class="col-lg-4 mb-4">
-            <div class="card h-100">
+            <div id='work-stat' class="card h-100">
                 <a class="card-header">I&C Work Status</a>
                 <div class="card-body">
                     <p class="card-text">This section is the commonplace of each of the works done by the I&C Team. You can search for existing works through the filters given. If you can't find any entity that means I&C has no issue with it.</p>
@@ -142,50 +213,21 @@
             </div>
         </div>
     </div>
-    <!-- /.row -->
-
-    <!-- /.row -->
-
-
-    <!-- Portfolio Section -->
-    <a class="tit">The Team</a>
-    <div><br></div>
-
-    <div class="row">
-        {% for item in items %}
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a class="pro" href="#"><img class="card-img-top" src="{{ item.image.url }}" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="pro">{{ item.name }}</a>
-                    </h4>
-                    <p class="card-text">{{ item.designation }}<br>{{ item.email }}<br>{{ item.contact }}</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <!-- /.row -->
-
-    <!-- Features Section -->
 
 
 </div>
-<!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 h-100">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-    <!-- /.container -->
-</footer>
+
 
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{% static '/js/particles.js' %}"></script>
-<script type="text/javascript" src="{% static '/js/app.js' %}"></script>
-<script src="{% static '/home/vendor/jquery/jquery.js' %}"></script>
-<script src="{% static '/home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static '/home/vendor/jquery/scroll.js' %}"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+<script type="text/javascript" src="{% static '/js/animation.js' %}"></script>
+
+
 {% endblock %}

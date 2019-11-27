@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+{% load static %}
+
+<br>
+<div class="container" style="position:relative;padding-right:0px; padding-left:0px; margin-right: auto; z-index:1;">
+    <a  class="tit">Automated Tools</a>
+    <div><br></div>
+
+    <!-- Marketing Icons Section -->
+    <div id='task-man' class="row">
+        <div class="col-lg-4 mb-4">
+            <div id='work-stat' class="card h-100">
+                <a class="card-header">PRS Data Analysis</a>
+                <div class="card-body">
+                    <p class="card-text">This section is the commonplace of each of the works done by the I&C Team. You can search for existing works through the filters given. If you can't find any entity that means I&C has no issue with it.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'prs_analysis' %}" class="btn btn-primary">Take a Tour</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <a class="card-header">Title</a>
+                <div class="card-body">
+                    <p class="card-text">This is the section of assigned works. From this section you can interrogate if any task is being completed or not. And you can update the task status from here.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'validate' %}" class="btn btn-primary">Take a tour</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card h-100">
+                <h4 class="card-header">Title</h4>
+                <div class="card-body">
+                    <p class="card-text"></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Take a tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

@@ -17,3 +17,9 @@ class ValidSearchForm(forms.ModelForm):
     class Meta:
         model = lte_validation
         fields = ['executor', 'date', 'domain']
+
+
+class PRSuploadForm(forms.ModelForm):
+    class Meta:
+        model = prs
+        fields = ['pre_data', 'post_data', 'site_list', 'threshold', 'type']

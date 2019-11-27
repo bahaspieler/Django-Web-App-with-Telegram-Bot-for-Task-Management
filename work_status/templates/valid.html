@@ -4,15 +4,15 @@
 
 
 
-<div class="container">
+<div class="container" style="padding-right:1px; padding-left:10px; margin-right: auto; margin-left:200px;">
 
 <form method="post" action="">
    {% csrf_token %}
     <div class ="form-row">
 
         {{form|crispy}}
-
-    </div><input class="btn btn-primary btn-sm" type="submit" value="Search" />
+        <input class="btn btn-primary btn-sm" style="position:relative; margin-top:50px; margin-bottom:10px;" type="submit" value="Search" />
+    </div>
 
 
 </form>
@@ -21,7 +21,7 @@
 
 
 <table class="table table-hover">
-    <thead>
+    <thead class="thead-dark">
     <tr>
         <th>ID</th>
         <th>Executor Name</th>
@@ -48,8 +48,8 @@
         <td>{{ item.catag }}</td>
         <td>{{ item.domain }}</td>
         <td>
-            <a href="{% url 'todo_pending' item.pk %}" class="btn btn-success btn-sm" role="button">COMPLETED</a>
-            &nbsp<a href="{% url 'add_lte' %}" class="btn btn-warning btn-sm"role="button">ADD</a>
+            <a href="{% url 'todo_pending' item.pk %}" class="btn btn-success btn-sm" role="button" style="font-size: 10px;">COMPLETED</a>
+            <!--&nbsp<a class="plus" href="{% url 'add_lte' %}" role="button"></a>-->
         </td>
     </tr>
 
@@ -64,8 +64,8 @@
         <td>{{ item.catag }}</td>
         <td>{{ item.domain }}</td>
         <td>
-            <a href="{% url 'todo_completed' item.pk %}" class="btn btn-danger btn-sm" role="button">PENDING....</a>
-            &nbsp<a href="{% url 'add_lte' %}" class="btn btn-warning btn-sm"role="button">ADD</a>
+            <a href="{% url 'todo_completed' item.pk %}" class="btn btn-danger btn-sm" role="button" style="font-size: 10px; font-weight:900; padding-right:22px; padding-left:22px;">PENDING</a>
+            &nbsp<a href="{% url 'add_lte' %}" class="plus" role="button"></a>
         </td>
     </tr>
     {% endif %}
